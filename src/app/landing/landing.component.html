@@ -1,0 +1,28 @@
+<div class="button-container">
+    <a class="button-left" routerLink="/about"><</a>
+    <a class="button-right" routerLink="/portfolio">></a>
+  </div>
+<body>
+<section>
+    <div class="align-middle" style="overflow-y: hidden;">
+        <div>
+            <h1 id="name" class="text-center" style="padding-top:250px;padding-bottom: 10px;">Hi, I am Samuel Esquer Castro</h1>
+        </div>
+        <div class="typing-text">
+            <div class="fallable-text">
+                <p>
+                    <mark *ngFor="let word of markedWords; let i = index" [ngStyle]="{'animation-delay': i * 0.1 + 's'}"
+                    [attr.id]="'animable-' + i">{{ word }}</mark>
+                </p>
+            </div>    
+        </div>
+    </div>
+    <button class="destroy" (click)="startAnimation()">Destroy this page</button>      
+  <div [style.left.px]="mouseX" class="object"  *ngIf="!dead"><img src="/assets/avatar.png" alt="" width="150px"></div>
+  <div style="transform: translate(45.5vw);position: absolute;"class="object" [@deadTrigger]="!dead ? 'true' : 'false'" *ngIf="dead"><img src="/assets/avatar.png" alt="" width="150px"></div>
+
+</section>
+<div *ngIf="dead" style="transform: translate(46.7vw,-75vh);position: absolute;">
+    <h1 style="color: red;">U DED</h1>
+</div>
+</body>

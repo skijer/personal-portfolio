@@ -1,0 +1,18 @@
+.pill-tags {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: chocolate;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 10rem;
+    padding: 0.3rem 0.6rem;
+    background-color: transparent;
+    border: 1px solid chocolate;
+  }
+  .project-sections {
+    position: absolute; top: 0;left: 0;right: 0; background-color: #2A2A2A;
+  }
+  .line {padding-top: 25px; background-color:midnightblue; color: transparent;}

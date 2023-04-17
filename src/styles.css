@@ -1,0 +1,35 @@
+.button-container {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .button-left, .button-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .button-left:hover, .button-right:hover {
+    background-color: #aaa;
+    cursor: pointer;
+  }
+  
+  .button-left:before {
+    content: "<";
+  }
+  
+  .button-right:before {
+    content: ">";
+  }
+  

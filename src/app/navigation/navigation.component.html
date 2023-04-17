@@ -1,0 +1,16 @@
+<div class="buttons" style="z-index: 2;">
+    <a href="https://github.com/skijer"><img src="/assets/square-github.svg"></a>
+    <a href="https://www.facebook.com/samuel.esquercastro/"><img src="/assets/square-facebook.svg"></a>
+    <a href="https://www.linkedin.com/in/samuel-esquer-castro-005b9a241/"><img src="/assets/linkedin.svg"></a>
+    
+  </div>
+  <div class="pagination"style="z-index: 2;"[ngClass]="{ 'open': isPaginationOpen }">
+    <div class="toggle" (click)="togglePagination()"><img src="/assets/bars-solid.svg"></div>
+    <div class="links">
+      <a routerLink="/portfolio">My Portfolio</a>
+      <a routerLink="/">Landing Page (Game)</a>
+      <a routerLink="/about">About Me</a>
+    </div>
+  </div>
+  
+  <button class="close" (click)="togglePagination()" *ngIf="isPaginationOpen"></button>

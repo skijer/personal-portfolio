@@ -1,0 +1,63 @@
+.buttons {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+  }
+  
+  .buttons a {
+    display: inline-block;
+    padding: 2px;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    width: 48px;
+  }
+  
+  .buttons a:last-child {
+    margin-bottom: 0;
+  }
+  .pagination {
+    position: fixed;
+    top: 0;
+    right: 10px;
+  }
+  
+  .toggle {
+    display: block;
+    padding: 2px;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    width: 32px;
+  }
+  
+  .links {
+    display: none;
+    position: absolute;
+    top: 48px;
+    right: 5px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .links a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #fff;
+    width:max-content;
+  }
+  
+  .pagination.open .links {
+    display: block;
+  }
+  .close{
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    z-index: 1;
+    position: fixed;
+    cursor:auto;
+  }

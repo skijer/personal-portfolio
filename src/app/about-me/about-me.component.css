@@ -1,0 +1,36 @@
+.about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-color: #1e1e1e; /* Dark mode background color */
+  }
+  
+  .about-description {
+    flex: 1;
+    padding: 20px;
+    color: #fff; /* White text color */
+  }
+  
+  .about-description h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-description p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .about-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .about-image img {
+    width: 70%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* White box shadow */
+  }
+  
