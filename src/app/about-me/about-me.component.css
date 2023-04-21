@@ -9,27 +9,29 @@
   
   .about-description {
     flex: 1;
-    padding: 20px;
+    padding: 10vw;
     color: #fff; /* White text color */
   }
   
   .about-description h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
   }
   
   .about-description p {
     font-size: 1.2rem;
+    text-align: justify;
     line-height: 1.5;
   }
   
   .about-image {
     flex: 1;
+    transform: translateX(-8vw);
     text-align: center;
   }
   
   .about-image img {
-    width: 70%;
+    width: 50%;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* White box shadow */
   }

@@ -49,9 +49,12 @@
 <img src="../assets/avatar01.png" alt="..." style="position:absolute; top:250px; left:10px; width: 15%;">
 
 <div class="button-container">
-    <a class="button-left" routerLink="/"><</a>
-    <a class="button-right" routerLink="/about">></a>
+    <a class="button-left" routerLink="/" (mouseenter)="showText1 = true" (mouseleave)="showText1 = false"><</a>
+    <p *ngIf="showText1" style="position:fixed;top:58vh;left:0vw;white-space: nowrap;font-size: 18px;">Landing</p>
+    <a class="button-right" routerLink="/about" (mouseenter)="showText2 = true" (mouseleave)="showText2 = false">></a>
+    <p *ngIf="showText2" style="position:fixed;top:58vh;right:0vw;white-space: nowrap;font-size: 18px;">About me</p>
   </div>
+
 
 <section class="project-sections" style="top:450px">
     <div class="line">.</div>

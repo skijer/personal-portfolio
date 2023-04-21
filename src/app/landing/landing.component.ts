@@ -29,6 +29,9 @@ export class LandingComponent implements OnInit{
   scale=window.innerWidth*0.23;
   z=false;
   dead=false;
+  showText1=false;
+  showText2=false;
+  
 
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {

@@ -1,6 +1,8 @@
 <div class="button-container">
-    <a class="button-left" routerLink="/about"><</a>
-    <a class="button-right" routerLink="/portfolio">></a>
+    <a class="button-left" routerLink="/about" (mouseenter)="showText1 = true" (mouseleave)="showText1 = false"><</a>
+    <p *ngIf="showText1" style="position:fixed;top:58vh;left:0vw;white-space: nowrap;font-size: 18px;">About me</p>
+    <a class="button-right" routerLink="/portfolio" (mouseenter)="showText2 = true" (mouseleave)="showText2 = false">></a>
+    <p *ngIf="showText2" style="position:fixed;top:58vh;right:0vw;white-space: nowrap;font-size: 18px;">Portfolio</p>
   </div>
 <body>
 <section>

@@ -19,7 +19,7 @@
     text-decoration: none;
   }
   .button-right{
-    transform: translateX(90vw);
+    transform: translateX(93vw);
   }
   
   .button-left:hover, .button-right:hover {

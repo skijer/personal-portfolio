@@ -29,9 +29,15 @@
     background-color: transparent;
     color: #fff;
     cursor: pointer;
-    width: 32px;
+    size-adjust:initial;
   }
-  
+  img{
+    border-radius: 9px;
+  }
+  img:hover{
+    position: absolute;
+    width: 50px;
+  }
   .links {
     display: none;
     position: absolute;
