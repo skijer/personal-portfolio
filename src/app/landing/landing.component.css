@@ -13,8 +13,6 @@ mark{
 }
 .fallable-text{
   position: absolute;
-  left: 25.5vw;
-  width: 48vw;
   align-items: center;
   font-family: 'Inter';
   font-style: normal;
@@ -87,9 +85,9 @@ html,body,section,div{
     width: 150px;
     height: 150px;
   }
-  
-
-
+  .mobile-text{
+    font-size: 18px;
+  }
   
 
   [id^="animable-"] {

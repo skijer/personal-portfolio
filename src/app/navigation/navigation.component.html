@@ -13,4 +13,8 @@
     </div>
   </div>
   
-  <button class="close" (click)="togglePagination()" *ngIf="isPaginationOpen"></button>
+  <div *ngIf="!mobile"><button class="close" (click)="togglePagination()" *ngIf="isPaginationOpen"></button>
+  <div id="blocker" [ngClass]="{'block-screen': animateRight}"></div>
+  <div id="leftBar" [ngClass]="{'animate-left': animateLeft}"></div>
+  <div id="rightBar" [ngClass]="{'animate-right': animateRight}"></div>
+  </div>

@@ -10,10 +10,12 @@ import * as bootstrap from 'bootstrap';
 export class PortfolioPageComponent implements OnInit {
   showText1=false;
   showText2=false;
+  mobile=false;
   
   constructor() { }
 
   ngOnInit() {
+    this.mobile=this.mobile=window.innerWidth < 768;
     const carouselWeb = $('#webPage01')[0];
     const carousel1 = new bootstrap.Carousel(carouselWeb, {
       interval: 2000,

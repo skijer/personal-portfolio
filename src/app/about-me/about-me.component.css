@@ -35,3 +35,15 @@
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* White box shadow */
   }
+  .mob-img{
+    border-radius: 25px;
+    width: 80%;
+    left: 10%;
+    position: relative;
+  }  
+  .mob-container{
+    top:10vh;
+    position: relative;
+    height: 170vh;
+    background-color: #1e1e1e;
+  }

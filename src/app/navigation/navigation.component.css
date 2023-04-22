@@ -67,3 +67,114 @@
     position: fixed;
     cursor:auto;
   }
+  
+  #leftBar, #rightBar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+  }
+  
+  #leftBar {
+    left: 0;
+    background-color: #303030; /* Dark mode color for left bar */
+  }
+  
+  #rightBar {
+    right: 0;
+    background-color: #404040; /* Dark mode color for right bar */
+  }
+  #blocker{
+    top:0;
+    left:0;
+    position: fixed;
+    background-color: #1E1E1E;
+    z-index:100;
+  }
+  .block-screen{
+    animation-name: blocking;
+    animation-duration: 3s;
+    width: 50%;
+  }
+  .animate-left {
+    animation-name: slideLeft;
+    animation-duration: 3s;
+    animation-timing-function:ease-in-out;
+    animation-direction: alternate;
+    animation-fill-mode: both;    
+    width: 50%;
+  }
+  
+  .animate-right {
+    animation-name: slideRight;
+    animation-duration: 3s;
+    animation-timing-function:ease-in-out;
+    animation-direction: alternate;
+    animation-fill-mode: both;    
+    width: 50%;
+  }
+  @keyframes blocking {
+    0%{
+      animation-timing-function: steps(1, end);
+    }
+    1%{
+      width: 100vw;
+      height: 100vh;
+      animation-timing-function: steps(1, end);
+    }
+    70%{
+      width: 0vw;
+      height: 0vh;
+    }
+  }
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    30% {
+      transform: translateX(0);
+      animation-timing-function: steps(1, end);
+      width: 100vw;
+    }
+    40% {
+      transform: translateX(0) translateY(100%);
+      animation-timing-function: steps(1, end);
+      width: 100vw;
+    }
+    70% {
+      transform: translateX(0) translateY(100%);
+      width: 100vw;
+      height: 50vh;
+    }
+    100% {
+      transform: translateX(-100%) translateY(100%);
+      width: 100vw;
+      height: 50vh;
+    }
+  }
+  
+  @keyframes slideRight {
+    0% {
+      transform: translateX(100%);
+    }
+    30% {
+      transform: translateX(0);
+      animation-timing-function: steps(1, end);
+    }
+    40% {
+      transform: translateX(0);
+      animation-timing-function: steps(1, end);
+    }
+    72% {
+      transform: translateX(0);
+      width: 100vw;
+      height: 50vh;
+    }
+    100% {
+      transform: translateX(100%);
+      width: 100vw;
+      height: 50vh;
+    }
+  }
+  

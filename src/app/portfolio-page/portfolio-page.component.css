@@ -16,3 +16,7 @@
     position: absolute; top: 0;left: 0;right: 0; background-color: #2A2A2A;
   }
   .line {padding-top: 25px; background-color:midnightblue; color: transparent;}
+  .mob-header{
+    position: absolute;
+    text-align: center;
+  }

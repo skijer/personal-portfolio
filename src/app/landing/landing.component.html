@@ -1,4 +1,4 @@
-<div class="button-container">
+<div class="button-container" *ngIf="!mobile">
     <a class="button-left" routerLink="/about" (mouseenter)="showText1 = true" (mouseleave)="showText1 = false"><</a>
     <p *ngIf="showText1" style="position:fixed;top:58vh;left:0vw;white-space: nowrap;font-size: 18px;">About me</p>
     <a class="button-right" routerLink="/portfolio" (mouseenter)="showText2 = true" (mouseleave)="showText2 = false">></a>
@@ -11,17 +11,17 @@
             <h1 id="name" class="text-center" style="padding-top:250px;padding-bottom: 10px;">Hi, I am Samuel Esquer Castro</h1>
         </div>
         <div class="typing-text">
-            <div class="fallable-text">
-                <p>
+            <div class="fallable-text" [ngStyle]="{'left': !mobile?'25.5vw':'5vw','width': !mobile?'48vw':'90vw'}">
+                <p [ngClass]="{'mobile-text':mobile}">
                     <mark *ngFor="let word of markedWords; let i = index" [ngStyle]="{'animation-delay': i * 0.1 + 's'}"
                     [attr.id]="'animable-' + i">{{ word }}</mark>
                 </p>
             </div>    
         </div>
     </div>
-    <button class="destroy" (click)="startAnimation()">Destroy this page</button>      
-  <div [style.left.px]="mouseX" class="object"  *ngIf="!dead"><img src="/assets/avatar.png" alt="" width="150px"></div>
-  <div style="transform: translate(45.5vw);position: absolute;"class="object" [@deadTrigger]="!dead ? 'true' : 'false'" *ngIf="dead"><img src="/assets/avatar.png" alt="" width="150px"></div>
+    <button class="destroy" (click)="startAnimation()" *ngIf="!mobile">Destroy this page</button>      
+  <div [style.left.px]="mouseX" class="object"  *ngIf="!dead"><img src="/assets/avatar.png" alt="" width="150px" [ngStyle]="{'left':mobile?'40vw':0,'position':mobile?'fixed':'absolute','top':mobile?'-40px':''}"></div>
+  <div [ngStyle]="{'transform': mobile?'':'translate(45.5vw)','position': mobile?'':'absolute'}"class="object" [@deadTrigger]="!dead ? 'true' : 'false'" *ngIf="dead"><img src="/assets/avatar.png" alt="" width="150px"></div>
 
 </section>
 <div *ngIf="dead" style="transform: translate(46.7vw,-75vh);position: absolute;">

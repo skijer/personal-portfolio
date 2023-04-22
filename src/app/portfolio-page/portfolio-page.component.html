@@ -1,9 +1,16 @@
+<div class="button-container" *ngIf="!mobile">
+    <a class="button-left" routerLink="/" (mouseenter)="showText1 = true" (mouseleave)="showText1 = false"><</a>
+    <p *ngIf="showText1" style="position:fixed;top:58vh;left:0vw;white-space: nowrap;font-size: 18px;">Landing</p>
+    <a class="button-right" routerLink="/about" (mouseenter)="showText2 = true" (mouseleave)="showText2 = false">></a>
+    <p *ngIf="showText2" style="position:fixed;top:58vh;right:0vw;white-space: nowrap;font-size: 18px;">About me</p>
+  </div>
+
 <section class="project-sections">
-    <div class="line">.</div>
+    <div class="line" *ngIf="!mobile">.</div>
     <div class="container md">
-        <div class="row justify-content-start">
+        <div [ngClass]="mobile?'':'row justify-content-start'">
             <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="webPage01" class="carousel slide">
+                <div id="webPage01" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#webPage01" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
                         <button type="button" data-bs-target="#webPage01" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
@@ -31,38 +38,32 @@
                   </div>
             </div>
             <div class="col" style="padding-top: 40px">
-                <h1 class="text-center">My first portfolio webpage</h1>
-                <p>I first made a different website, inspired by the fixed style from IT websites I've seen on the net, but I changed it to have a fresh style more according to my usual designs.
+                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">My first portfolio webpage</h1>
+                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">I first made a different website, inspired by the fixed style from IT websites I've seen on the net, but I changed it to have a fresh style more according to my usual designs.
                     You can still take a look of it<a href="https://portv1-brown.vercel.app/"> in vercel </a>or <a href="https://github.com/skijer/portfoliov1">look the script on github</a>
                 </p>
+                <div [ngStyle]="{'top':mobile?'100vh':'', 'position':mobile?'absolute':''}">
                 <p>Made with:</p>
                 <p>HTML, Typescript, CSS, angular, Photoshop</p>
-                <span class="pill-tags">frontend</span>
+                <span class="pill-tags">Frontend</span>
                 <span style="padding-left: 10px;"></span>
                 <span class="pill-tags">UI/UX</span>
                 <span style="padding-left: 10px;"></span>
                 <span class="pill-tags">Typescript</span>
             </div>
+            </div>
         </div>
     </div>
 </section>
-<img src="../assets/avatar01.png" alt="..." style="position:absolute; top:250px; left:10px; width: 15%;">
+<img src="../assets/avatar01.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'18vh':'250px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
 
-<div class="button-container">
-    <a class="button-left" routerLink="/" (mouseenter)="showText1 = true" (mouseleave)="showText1 = false"><</a>
-    <p *ngIf="showText1" style="position:fixed;top:58vh;left:0vw;white-space: nowrap;font-size: 18px;">Landing</p>
-    <a class="button-right" routerLink="/about" (mouseenter)="showText2 = true" (mouseleave)="showText2 = false">></a>
-    <p *ngIf="showText2" style="position:fixed;top:58vh;right:0vw;white-space: nowrap;font-size: 18px;">About me</p>
-  </div>
-
-
-<section class="project-sections" style="top:450px">
-    <div class="line">.</div>
+<section class="project-sections" [ngStyle]="{'top':mobile?'120vh':'450px'}">
+    <div class="line" *ngIf="!mobile">.</div>
     <div class="container md">
-        <div class="row justify-content-start">
+        <div [ngClass]="mobile?'':'row justify-content-start'">
             <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="carKahiit" class="carousel slide">
-                    <div class="carousel-indicators">
+                <div id="carKahiit" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
+                    <div class="carousel-indicators" >
                         <button type="button" data-bs-target="#carKahiit" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
                         <button type="button" data-bs-target="#carKahiit" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
                         <button type="button" data-bs-target="#carKahiit" data-bs-slide-to="2" aria-label="Slide 3" style="transform: translateY(50px); background-color:white;"></button>
@@ -93,32 +94,33 @@
                     </div>
             </div>
             <div class="col" style="padding-top: 40px">
-                <h1 class="text-center">Kahiit <small class="text-muted">(Local Server Questionary)</small></h1>
-                <p>This is a beta project. It is a teaching tool to make questionaries with different game styles, you can play with a roulette by topic, or a traditional style with time questions and answers. This game is played by connecting a by a localserver, you just need a computer and the students can access to it with their phone.
+                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">Kahiit <small class="text-muted">(Local Server Questionary)</small></h1>
+                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">This is a beta project. It is a teaching tool to make questionaries with different game styles, you can play with a roulette by topic, or a traditional style with time questions and answers. This game is played by connecting a by a localserver, you just need a computer and the students can access to it with their phone.
                     <a href="https://youtu.be/AiJJf7jfsAA">Here is the bitacora</a>
+                </p>
+                <div [ngStyle]="{'top':mobile?'107vh':'', 'position':mobile?'absolute':''}">
                 <p>Made with:</p>
                 <p>PHP, Laravel, mySQL, Angular, Typescript, HTML, Unity, C#</p>
                 <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">backend</span>
+                <span class="pill-tags">Backend</span>
                 <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">game design</span>
+                <span class="pill-tags">Game Design</span>
                 <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">frontend</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">UI/UX</span>
+                <span class="pill-tags">Frontend</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<img src="../assets/avatar02.png" alt="..." style="position:absolute; top: 700px; left:10px; width: 15%;">
+<img src="../assets/avatar02.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'138vh':'700px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
 
 
-<section class="project-sections" style="top:900px">
-    <div class="line">.</div>
+<section class="project-sections" [ngStyle]="{'top':mobile?'255vh':'900px'}">
+    <div class="line" *ngIf="!mobile">.</div>
     <div class="container md">
-        <div class="row justify-content-start">
+        <div [ngClass]="mobile?'':'row justify-content-start'">
             <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="carAudio" class="carousel slide">
+                <div id="carAudio" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carAudio" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
                         <button type="button" data-bs-target="#carAudio" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
@@ -146,29 +148,32 @@
                     </div>
             </div>
             <div class="col" style="padding-top: 40px">
-                <h1 class="text-center">Audiophile ecommerce</h1>
-                <p>This is a project made as a frontend mentor project, it is currently only working properly in the PC version, but it's an example of an ecommerce website, where you can add to the cart and purchase an item.</p>
+                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">Audiophile ecommerce</h1>
+                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">This is a project made as a frontend mentor project, it is currently only working properly in the PC version, but it's an example of an ecommerce website, where you can add to the cart and purchase an item.
                 You can take a look of it<a href="https://audiophile-ecommerce-sample.vercel.app/"> in vercel </a>or <a href="https://github.com/skijer/audiophile-ecommerce-sample-">look the script on github</a>
+                </p>
+                <div [ngStyle]="{'top':mobile?'100vh':'', 'position':mobile?'absolute':''}">
                 <p>Made with:</p>
                 <p>Figma, Angular, Photoshop, Typescript</p>
                 <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Figma</span>
+                <span class="pill-tags">Backend</span>
                 <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">frontend</span>
+                <span class="pill-tags">Frontend</span>
                 <span style="padding-left: 10px;"></span>
                 <span class="pill-tags">Angular</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<img src="../assets/avatar04.png" alt="..." style="position:absolute; top: 1150px; left:10px; width: 15%;">
+<img src="../assets/avatar04.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'273vh':'1150px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
 
-<section class="project-sections" style="top:1350px">
-    <div class="line">.</div>
+<section class="project-sections" [ngStyle]="{'top':mobile?'375vh':'1350px'}">
+    <div class="line" *ngIf="!mobile">.</div>
     <div class="container md">
-        <div class="row justify-content-start">
+        <div [ngClass]="mobile?'':'row justify-content-start'">
             <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="carRPS" class="carousel slide">
+                <div id="carRPS" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carRPS" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
                         <button type="button" data-bs-target="#carRPS" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
@@ -196,17 +201,24 @@
                     </div>
             </div>
             <div class="col" style="padding-top: 40px">
-                <h1 class="text-center">Rock, Paper, Scissors</h1>
-                <p>Another project made with frontend mentor, you can play rock, paper, scissors with the pc as well as playing and perhaps learning a bonus game of rock, paper, scissors.</p>
+                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">Rock, Paper, Scissors</h1>
+                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">Another project made with frontend mentor, you can play rock, paper, scissors with the pc as well as playing and perhaps learning a bonus game of rock, paper, scissors.
                 Try it <a href="https://rock-paper-scissor-ivory.vercel.app/"> in vercel </a>or <a href="https://github.com/skijer/rock-paper-scissor">look the script on github</a>
+                </p>
+                <div [ngStyle]="{'top':mobile?'100vh':'', 'position':mobile?'absolute':''}">
                 <p>Made with:</p>
                 <p>Figma, Photoshop, Angular</p>
                 <span style="padding-left: 10px;"></span>
                 <span class="pill-tags">Angular</span>
                 <span style="padding-left: 10px;"></span>
                 <span class="pill-tags">Typescript</span>
+                <span style="padding-left: 10px;"></span>
+                <span class="pill-tags">Game Design</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<img src="../assets/avatar05.png" alt="..." style="position:absolute; top: 1600px; left:10px; width: 15%;">
+<img src="../assets/avatar05.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'393vh':'1600px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
+
+<div *ngIf="mobile" style="color:transparent;height: 500vh;">.</div>

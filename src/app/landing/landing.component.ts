@@ -20,6 +20,7 @@ import {trigger, state, style, transition, animate } from '@angular/animations'
 })
 
 export class LandingComponent implements OnInit{
+  mobile=false;
   markedWords = ['I', 'am','a', 'software', 'developer', 'with', 'a', 'degree', 'in', 'biomedical', 'engineer.', 'I', 'love', 'creating', 'software', 'in', 'different', 'areas', 'and', 'innovate', 'with', 'ideas', 'to', 'implement', 'technology', 'in', 'a', 'daily','life'];
   mouseX: number = 0;
   activeWordIndex: number = 0;
@@ -31,6 +32,7 @@ export class LandingComponent implements OnInit{
   dead=false;
   showText1=false;
   showText2=false;
+  extra="";
   
 
   @HostListener('document:mousemove', ['$event'])
@@ -47,6 +49,7 @@ export class LandingComponent implements OnInit{
     if(element)
     element.style.setProperty('--x', this.x + 'vw');
     this.x=0;
+    this.mobile=window.innerWidth < 768;
   }
 
   startAnimation() {
@@ -102,5 +105,4 @@ export class LandingComponent implements OnInit{
     }
   },this.markedWords.length*1000);
   }
-  
 }
