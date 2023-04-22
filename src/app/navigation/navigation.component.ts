@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { Router, NavigationEnd, RouterEvent } from '@angular/router';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -11,4 +12,12 @@ export class NavigationComponent {
   togglePagination() {
     this.isPaginationOpen = !this.isPaginationOpen;
   }
+
+constructor(private router: Router) {
+}
+
+onRouteChange() {
+  console.log('Route changed');
+}
+
 }

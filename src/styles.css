@@ -26,6 +26,54 @@
     background-color: #aaa;
     cursor: pointer;
   }
+
+
+  #leftBar, #rightBar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    z-index: 9999;
+  }
+  
+  #leftBar {
+    left: 0;
+    background-color: #303030;
+  }
+  
+  #rightBar {
+    right: 0;
+    background-color: #404040;
+  }
+  
+  .animate-left {
+    animation: slideLeft 1s forwards;
+    width: 50%;
+  }
+  
+  .animate-right {
+    animation: slideRight 1s forwards;
+    width: 50%;
+  }
+  
+  @keyframes slideLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
   
   .button-left:before {
     content: "<";
