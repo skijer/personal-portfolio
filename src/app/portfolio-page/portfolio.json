@@ -31,6 +31,36 @@
   },
   {
     "id": 2,
+    "title": "Online training app",
+    "target": "fsy",
+    "alt": "FSY online training for GDL",
+    "img": "fsy",
+    "imgCount": 3,
+    "body": "I wanted to help on a summer camp for kids from 14 to 17 of my church, and there are many rules and trainings to learn before the camp in order to keep the youth safe and make the camp entertaining for all, when I was called in charge of it I decided to make a website where all of this information can be found.",
+    "links": [{"url": "https://fsy-vert.vercel.app/", "text": "Look at the website on Vercel"},
+              {"url": "https://github.com/skijer/fsy", "text": "Read the code on Github"}
+              ],
+    "tools": "Angular, MySQL, Photoshop, Freepik, DALLE-3",
+    "tags": ["Angular","Typescript","HTML-CSS", "MySQL", "GameDev"],
+    "pet": "hat.png"
+  },
+  {
+    "id": 3,
+    "title": "Academic Records System",
+    "target": "control-escolar",
+    "alt": "Academir records db ",
+    "img": "mysql",
+    "imgCount": 3,
+    "body": "These projects are a set of colaborative projects created with a friend of mine to simulate databases for an autoshop and an academic records deparment. They're made with python and all the communication is using python-mysql connector, it can create, read, update and delete everything, since a classroom with all the clases assigned to them to a single stundent.",
+    "links": [{"url": "https://github.com/juanpabloyaez/tallermecanicotkinter", "text": "Try the auto shop"},
+              {"url": "https://github.com/skijer/ControlEscolar", "text": "Try the academic records system"}
+              ],
+    "tools": "Python, MySQL",
+    "tags": ["Python", "MySQL"],
+    "pet": "hat.png"
+  },
+  {
+    "id": 5,
     "title": "Kahiit",
     "target": "kahiit",
     "alt": "Kahiit running ",
@@ -45,7 +75,7 @@
     "pet": "student.png"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "My first portfolio webpage",
     "target": "user-page",
     "alt": "WEB PAGE SAMPLE IMAGE ",
