@@ -29,6 +29,7 @@ export class NavigationComponent implements OnInit {
   }
 
   onRouteChange() {
+    this.isPaginationOpen=false;
     this.animateLeft = true;
     this.animateRight = true;
     setTimeout(() => {

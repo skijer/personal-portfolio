@@ -1,5 +1,4 @@
 .pill-tags {
-    display: inline-block;
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.5;
@@ -11,12 +10,70 @@
     padding: 0.3rem 0.6rem;
     background-color: transparent;
     border: 1px solid chocolate;
+    margin-right: 5px;
+    margin-top: 5px;
   }
-  .project-sections {
-    position: absolute; top: 0;left: 0;right: 0; background-color: #2A2A2A;
+.pill-selected {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 10rem;
+  padding: 0.3rem 0.6rem;
+  background-color: chocolate;
+  border: 1px solid white;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+  .project-sections{
+    overflow: hidden;
+    background-color: #2A2A2A;
+    height: 70vh;
+    margin-bottom: 10vh;
   }
-  .line {padding-top: 25px; background-color:midnightblue; color: transparent;}
-  .mob-header{
-    position: absolute;
-    text-align: center;
+
+  .line {
+    padding-top: 25px; 
+    background-color:transparent; 
+    color: transparent;}
+
+  .carousel-inner{
+    border-radius: 15px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); border-color: black; border-width: 2px; border-style:groove;
+  }
+  .car-btn{
+    transform: translateY(50px);
+    background-color: #4267B2 !important;;
+  }
+  .tags{
+    display: inline-block;
+  }
+  .avatarMobile{
+    position: relative;
+    width: 50%;
+    transform: translate(-30px,175px);
+    z-index: 9999;
+  }
+  .avatarComputer{
+    position: relative;
+    width: 25%;
+    transform: translate(-30px,-250px);
+  }
+  .mobile-projects{
+    padding-bottom: 15px;
+    padding-top: 25%;
+    background-color: #2A2A2A !important;
+  }
+  .mob-indicator{
+    background-color: gray !important;
+    transform: translateY(300px);
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+  }
+  
+  .mob-indicator.active{
+    background-color: rgb(46, 46, 230) !important;
   }

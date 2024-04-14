@@ -1,224 +1,115 @@
-<div class="button-container" *ngIf="!mobile">
+<body>
+  <div class="button-container" *ngIf="!mobile">
     <a class="button-left" routerLink="/" (mouseenter)="showText1 = true" (mouseleave)="showText1 = false"><</a>
     <p *ngIf="showText1" style="position:fixed;top:58vh;left:0vw;white-space: nowrap;font-size: 18px;">Landing</p>
     <a class="button-right" routerLink="/about" (mouseenter)="showText2 = true" (mouseleave)="showText2 = false">></a>
     <p *ngIf="showText2" style="position:fixed;top:58vh;right:0vw;white-space: nowrap;font-size: 18px;">About me</p>
   </div>
-
-<section class="project-sections">
-    <div class="line" *ngIf="!mobile">.</div>
-    <div class="container md">
-        <div [ngClass]="mobile?'':'row justify-content-start'">
-            <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="webPage01" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#webPage01" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#webPage01" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#webPage01" data-bs-slide-to="2" aria-label="Slide 3" style="transform: translateY(50px); background-color:white;"></button>
+  
+<div id="pc-container" style="padding-top:75px;" *ngIf="!mobile">
+  <ng-container *ngFor="let p of project">
+  <section *ngIf="search === '' || p.tags.includes(search)" [ngClass]="p.id === 0 ? 'first project-sections': 'project-sections'">
+      <div class="container md">
+          <div class="row justify-content-start'">
+              <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
+                  <div [id]="p.target" class="carousel slide">
+                      <div class="carousel-indicators">
+                          <button *ngFor="let j of getRange(p.imgCount)" type="button" 
+                          [attr.data-bs-target]="'#' + p.target" 
+                          [attr.data-bs-slide-to]="j-1" 
+                          [attr.aria-label]="'Slide ' + j"
+                          [ngClass]="j === 1 ? 'active car-btn' : 'car-btn'" 
+                          [attr.aria-current]="j === 1 ? true : null" ></button> 
+                        </div>
+                   <div class="carousel-inner">
+                        <div *ngFor="let j of getRange(p.imgCount)" [ngClass]="j === 1 ? 'active carousel-item' : 'carousel-item'" >
+                          <img [src]="'../assets/carousels/'+ p.img + '_' +j+'.png'" class="d-block w-100" [alt]="p.alt+j" height="280px">
+                        </div>
                       </div>
-                    <div class="carousel-inner" style="border-radius: 15px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); border-color: darkblue; border-width: 2px; border-style:groove;">
-                      <div class="carousel-item active">
-                        <img src="../assets/pj_portfolio_01.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 01" height="280px">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="../assets/pj_portfolio_02.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 02" height="280px">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="../assets/pj_portfolio_03.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 03" height="280px">
-                      </div>
+                      <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#' + p.target" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#' + p.target" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#webPage01" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#webPage01" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
+              </div>
+              <div class="col" style="padding-top: 40px">
+                  <h1 class="text-center">{{ p.title }}</h1>
+                  <p style="text-align: justify;">{{ p.body }}
+                      <a>You can take a look of it at: </a> <br>
+                      <a *ngFor="let pl of p.links" [href]="pl.link">{{ pl.text }}<br></a>
+                  </p>
+                  <div>
+                  <p>Made with:</p>
+                  <p>{{ p.tools }}</p>
+                  <div class="tags" *ngFor="let pt of p.tags">
+                      <button [id]="pt" class="pill-tags" (click)="QuickSearch(pt)">{{ pt }}</button>
                   </div>
+              </div>
+              </div>
+          </div>
+      </div>
+  <img [src]="'../assets/pet/'+p.pet" alt="..." 
+      class="avatarComputer">
+  </section>
+</ng-container>
+</div>
+
+<div id="phone-container"*ngIf="mobile">
+  <ng-container *ngFor="let p of project">
+<section class="mobile-projects" *ngIf="search === '' || p.tags.includes(search)" >
+  
+  <div style="max-height: 0;">
+    <img [src]="'../assets/pet/'+p.pet" alt="..." 
+        class="avatarMobile">
+  </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <h3 class="text-center">{{ p.title }}</h3>
+        <div [id]="p.target" class="carousel slide">
+          <div class="carousel-indicators">
+              <button *ngFor="let j of getRange(p.imgCount)" type="button" 
+              [attr.data-bs-target]="'#' + p.target" 
+              [attr.data-bs-slide-to]="j-1" 
+              [attr.aria-label]="'Slide ' + j"
+              [ngClass]="j === 1 ? 'active mob-indicator' : 'mob-indicator'" 
+              [attr.aria-current]="j === 1 ? true : null" ></button> 
             </div>
-            <div class="col" style="padding-top: 40px">
-                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">My first portfolio webpage</h1>
-                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">I first made a different website, inspired by the fixed style from IT websites I've seen on the net, but I changed it to have a fresh style more according to my usual designs.
-                    You can still take a look of it<a href="https://portv1-brown.vercel.app/"> in vercel </a>or <a href="https://github.com/skijer/portfoliov1">look the script on github</a>
-                </p>
-                <div [ngStyle]="{'top':mobile?'100vh':'', 'position':mobile?'absolute':''}">
-                <p>Made with:</p>
-                <p>HTML, Typescript, CSS, angular, Photoshop</p>
-                <span class="pill-tags">Frontend</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">UI/UX</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Typescript</span>
+       <div>
+            <div *ngFor="let j of getRange(p.imgCount)" [ngClass]="j === 1 ? 'active carousel-item' : 'carousel-item'" >
+              <img [src]="'../assets/carousels/'+ p.img + '_' +j+'.png'" class="d-block w-100" [alt]="p.alt+j" height="240px">
             </div>
-            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#' + p.target" data-bs-slide="prev" style="transform:translateY(125px)">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#' + p.target" data-bs-slide="next" style="transform:translateY(125px)">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
+        <div>
+          <p style="text-align: justify; padding-top: 320px;">{{ p.body }}
+            <a>You can take a look of it at: </a> <br>
+            <a *ngFor="let pl of p.links" [href]="pl.link">{{ pl.text }}<br></a>
+        </p>
+        <div>
+        <p>Made with:</p>
+        <p>{{ p.tools }}</p>
+          <div class="tags" *ngFor="let pt of p.tags">
+              <button [id]="pt" class="pill-tags" (click)="QuickSearch(pt)">{{ pt }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 </section>
-<img src="../assets/avatar01.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'18vh':'250px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
-
-<section class="project-sections" [ngStyle]="{'top':mobile?'120vh':'450px'}">
-    <div class="line" *ngIf="!mobile">.</div>
-    <div class="container md">
-        <div [ngClass]="mobile?'':'row justify-content-start'">
-            <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="carKahiit" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
-                    <div class="carousel-indicators" >
-                        <button type="button" data-bs-target="#carKahiit" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#carKahiit" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#carKahiit" data-bs-slide-to="2" aria-label="Slide 3" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#carKahiit" data-bs-slide-to="3" aria-label="Slide 4" style="transform: translateY(50px); background-color:white;"></button>
-                        </div>
-                    <div class="carousel-inner" style="border-radius: 15px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); border-color: darkblue; border-width: 2px; border-style:groove;">
-                        <div class="carousel-item active">
-                        <img src="../assets/kahiit_01.png" class="d-block w-100" alt="GAME KAHIIT 01" height="280px">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/kahiit_02.png" class="d-block w-100" alt="GAME KAHIIT 02" height="280px">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/kahiit_03.png" class="d-block w-100" alt="GAME KAHIIT 03" height="280px">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/kahiit_04.png" class="d-block w-100" alt="GAME KAHIIT 04" height="280px">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carKahiit" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carKahiit" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                    </div>
-            </div>
-            <div class="col" style="padding-top: 40px">
-                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">Kahiit <small class="text-muted">(Local Server Questionary)</small></h1>
-                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">This is a beta project. It is a teaching tool to make questionaries with different game styles, you can play with a roulette by topic, or a traditional style with time questions and answers. This game is played by connecting a by a localserver, you just need a computer and the students can access to it with their phone.
-                    <a href="https://youtu.be/AiJJf7jfsAA">Here is the bitacora</a>
-                </p>
-                <div [ngStyle]="{'top':mobile?'107vh':'', 'position':mobile?'absolute':''}">
-                <p>Made with:</p>
-                <p>PHP, Laravel, mySQL, Angular, Typescript, HTML, Unity, C#</p>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Backend</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Game Design</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Frontend</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<img src="../assets/avatar02.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'138vh':'700px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
-
-
-<section class="project-sections" [ngStyle]="{'top':mobile?'255vh':'900px'}">
-    <div class="line" *ngIf="!mobile">.</div>
-    <div class="container md">
-        <div [ngClass]="mobile?'':'row justify-content-start'">
-            <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="carAudio" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carAudio" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#carAudio" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#carAudio" data-bs-slide-to="2" aria-label="Slide 3" style="transform: translateY(50px); background-color:white;"></button>
-                        </div>
-                    <div class="carousel-inner" style="border-radius: 15px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); border-color: darkblue; border-width: 2px; border-style:groove;">
-                        <div class="carousel-item active">
-                        <img src="../assets/audiophile_01.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 01" height="280px">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/audiophile_02.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 02" height="280px">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/audiophile_03.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 03" height="280px">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carAudio" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carAudio" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                    </div>
-            </div>
-            <div class="col" style="padding-top: 40px">
-                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">Audiophile ecommerce</h1>
-                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">This is a project made as a frontend mentor project, it is currently only working properly in the PC version, but it's an example of an ecommerce website, where you can add to the cart and purchase an item.
-                You can take a look of it<a href="https://audiophile-ecommerce-sample.vercel.app/"> in vercel </a>or <a href="https://github.com/skijer/audiophile-ecommerce-sample-">look the script on github</a>
-                </p>
-                <div [ngStyle]="{'top':mobile?'100vh':'', 'position':mobile?'absolute':''}">
-                <p>Made with:</p>
-                <p>Figma, Angular, Photoshop, Typescript</p>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Backend</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Frontend</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Angular</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<img src="../assets/avatar04.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'273vh':'1150px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
-
-<section class="project-sections" [ngStyle]="{'top':mobile?'375vh':'1350px'}">
-    <div class="line" *ngIf="!mobile">.</div>
-    <div class="container md">
-        <div [ngClass]="mobile?'':'row justify-content-start'">
-            <div class="col align-self-center" style="padding-top: 40px; padding-bottom: 80px;">
-                <div id="carRPS" class="carousel slide" [ngStyle]="{'transform':mobile?'translateY(20vh)':''}">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carRPS" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#carRPS" data-bs-slide-to="1" aria-label="Slide 2" style="transform: translateY(50px); background-color:white;"></button>
-                        <button type="button" data-bs-target="#carRPS" data-bs-slide-to="2" aria-label="Slide 3" style="transform: translateY(50px); background-color:white;"></button>
-                        </div>
-                    <div class="carousel-inner" style="border-radius: 15px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); border-color: darkblue; border-width: 2px; border-style:groove;">
-                        <div class="carousel-item active">
-                        <img src="../assets/rps_01.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 01" height="280px">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/rps_02.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 02" height="280px">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/rps_03.png" class="d-block w-100" alt="MY FIRST WEBPAGE SCREENSHOT 03" height="280px">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carRPS" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carRPS" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                    </div>
-            </div>
-            <div class="col" style="padding-top: 40px">
-                <h1 [ngClass]="mobile?'mob-header':'text-center'" [ngStyle]="{'top':mobile?'15vh':''}">Rock, Paper, Scissors</h1>
-                <p [ngClass]="mobile?'mob-header':''" [ngStyle]="{'top':mobile?'80vh':''}">Another project made with frontend mentor, you can play rock, paper, scissors with the pc as well as playing and perhaps learning a bonus game of rock, paper, scissors.
-                Try it <a href="https://rock-paper-scissor-ivory.vercel.app/"> in vercel </a>or <a href="https://github.com/skijer/rock-paper-scissor">look the script on github</a>
-                </p>
-                <div [ngStyle]="{'top':mobile?'100vh':'', 'position':mobile?'absolute':''}">
-                <p>Made with:</p>
-                <p>Figma, Photoshop, Angular</p>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Angular</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Typescript</span>
-                <span style="padding-left: 10px;"></span>
-                <span class="pill-tags">Game Design</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<img src="../assets/avatar05.png" alt="..." [ngStyle]="{'position':mobile?'absolute':'absolute', 'top':mobile?'393vh':'1600px', 'left':mobile?'75vw':'10px', 'width':mobile?'30%':'15%'}">
-
-<div *ngIf="mobile" style="color:transparent;height: 500vh;">.</div>
+</ng-container>
+<div class="line"></div>
+</div>
+<div class="line"></div>
+</body>

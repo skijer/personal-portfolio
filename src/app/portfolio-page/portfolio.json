@@ -1,0 +1,63 @@
+{"projects":[
+  {
+    "id": 0,
+    "title": "Rock, paper, scissors",
+    "target": "rps-page",
+    "alt": "Rock, paper, scissors",
+    "img": "rps",
+    "imgCount": 3,
+    "body":"Another project made with frontend mentor, you can play rock, paper, scissors with the pc as well as playing and perhaps learning a bonus game of rock, paper, scissors.",
+    "links": [{"url": "https://rock-paper-scissor-ivory.vercel.app/", "text": "Try it at vercel"},
+              {"url": "https://github.com/skijer/rock-paper-scissor", "text": "See the code in github"}
+              ],
+    "tools": "Angular, Photoshop, Bootstrap, Figma",
+    "tags": ["Angular", "Typescript", "HTML-CSS", "GameDev"],
+    "pet": "rock.png"
+  },
+  {
+    "id": 1,
+    "title": "Audiophile ecommerce",
+    "target": "ecommerce",
+    "alt": "E-commerce sample ",
+    "img": "audiophile",
+    "imgCount": 3,
+    "body": "This is a project made as a frontend mentor project, it is currently only working properly in the PC version, but it's an example of an ecommerce website, where you can add to the cart and purchase an item.",
+    "links": [{"url": "https://audiophile-ecommerce-sample.vercel.app/", "text": "Try it at vercel"},
+              {"url": "https://github.com/skijer/audiophile-ecommerce-sample-", "text": "See the code in github"}
+              ],
+    "tools": "Angular, Photoshop, Bootstrap, Figma, MySQL-Lite",
+    "tags": ["Angular", "Typescript", "HTML-CSS", "MySQL"],
+    "pet": "headphones.png"
+  },
+  {
+    "id": 2,
+    "title": "Kahiit",
+    "target": "kahiit",
+    "alt": "Kahiit running ",
+    "img": "kahiit",
+    "imgCount": 4,
+    "body": "This is a beta project. It is a teaching tool to make questionaries with different game styles, you can play with a roulette by topic, or a traditional style with time questions and answers. This game is played by connecting a by a localserver, you just need a computer and the students can access to it with their phone.",
+    "links": [{"url": "https://portv1-brown.vercel.app/", "text": "Watch a video test on YouTube"},
+              {"url": "", "text": "Dead download link"}
+              ],
+    "tools": "Angular, Photoshop, Bootstrap, Lavarel, MySQL",
+    "tags": ["Angular", "Typescript", "HTML-CSS", "MySQL", "Lavarel", "GameDev"],
+    "pet": "student.png"
+  },
+  {
+    "id": 5,
+    "title": "My first portfolio webpage",
+    "target": "user-page",
+    "alt": "WEB PAGE SAMPLE IMAGE ",
+    "img": "portfolio",
+    "imgCount": 3,
+    "body": "I first made a different website, inspired by the fixed style from IT websites I've seen on the net, but I changed it to have a fresh style more according to my usual designs.",
+    "links": [{"url": "https://portv1-brown.vercel.app/", "text": "Try it at vercel"},
+              {"url": "https://github.com/skijer/portfoliov1", "text": "See the code in github"}
+              ],
+    "tools": "Angular, Photoshop, Bootstrap",
+    "tags": ["Angular", "Typescript", "HTML-CSS"],
+    "pet": "tie.png"
+  }
+]
+}
