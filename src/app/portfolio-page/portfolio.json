@@ -7,7 +7,7 @@
     "img": "rps",
     "imgCount": 3,
     "body":"Another project made with frontend mentor, you can play rock, paper, scissors with the pc as well as playing and perhaps learning a bonus game of rock, paper, scissors.",
-    "links": [{"url": "https://rock-paper-scissor-ivory.vercel.app/", "text": "Try it at vercel"},
+    "links": [{"url": "https://rock-paper-scissor-ivory.vercel.app", "text": "Try it at vercel"},
               {"url": "https://github.com/skijer/rock-paper-scissor", "text": "See the code in github"}
               ],
     "tools": "Angular, Photoshop, Bootstrap, Figma",

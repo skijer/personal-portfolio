@@ -40,7 +40,7 @@
                   <h1 class="text-center">{{ p.title }}</h1>
                   <p style="text-align: justify;">{{ p.body }}
                       <a>You can take a look of it at: </a> <br>
-                      <a *ngFor="let pl of p.links" [href]="pl.link">{{ pl.text }}<br></a>
+                      <a *ngFor="let pl of p.links" [href]="pl.url" target="_blank">{{ pl.text }}<br></a>
                   </p>
                   <div>
                   <p>Made with:</p>
@@ -95,7 +95,7 @@
         <div>
           <p style="text-align: justify; padding-top: 320px;">{{ p.body }}
             <a>You can take a look of it at: </a> <br>
-            <a *ngFor="let pl of p.links" [href]="pl.link">{{ pl.text }}<br></a>
+            <a *ngFor="let pl of p.links" [href]="pl.url" target="_blank">{{ pl.text }}<br></a>
         </p>
         <div>
         <p>Made with:</p>
