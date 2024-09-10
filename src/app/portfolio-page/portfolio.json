@@ -88,6 +88,35 @@
     "tools": "Angular, Photoshop, Bootstrap",
     "tags": ["Angular", "Typescript", "HTML-CSS"],
     "pet": "tie.png"
+  },
+  {
+    "id": 7,
+    "title": "AI projects",
+    "target": "AI-pj",
+    "alt": "Cool AI's codes",
+    "img": "IA-pj",
+    "imgCount": 5,
+    "body": "I've worked in some sample projects using AI and java, a project to solve labyriths using searching algorithms, test if a word exists using a simple perceptron, NAND, XOR and NOR logic gates using neural network, and Akinator with the name of PIF, etc.",
+    "links": [{"url": "https://drive.google.com/drive/folders/1WMCF4WAYCwo4DLztDaNMYfkHfHQWDtuM?usp=sharing", "text": "Download them in Drive"}
+              ],
+    "tools": "Netbeans, Photoshop, MySQL",
+    "tags": ["Java", "AI", "MySQL", "C++"],
+    "pet": "bot.png"
+  },
+  {
+    "id": 8,
+    "title": "Pose extractor",
+    "target": "open-pose",
+    "alt": "Angle analysis",
+    "img": "open-pose",
+    "imgCount": 2,
+    "body": "This code made using MediaPipe of Google and Matlab to detect landmarks from the body and analyze them using MatLab, by using one main landmark and another as referal.",
+    "links": [{"url": "https://github.com/skijer/open-pose", "text": "Take a look of it on GitHub"}
+              ],
+    "tools": "Python, MatLab",
+    "tags": ["Java", "Python", "AI"],
+    "pet": "student.png"
   }
+
 ]
 }
